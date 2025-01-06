@@ -16,7 +16,7 @@ RUN apk update && apk upgrade && apk add \
   mongo-c-driver-static libbson-static \
   libidn2-dev \
   zlib zlib-dev \
-  cpanminus \
+  perl-app-cpanminus perl-test-nginx perl-utils \
   lua${LUA_VERSION}-dev lua${LUA_VERSION}
 
 RUN cpanm Test::Nginx::Socket::Lua https://github.com/luatoolz/App-Prove-Plugin-NginxModules.git
