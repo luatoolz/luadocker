@@ -33,7 +33,8 @@ jobs:
         with:
           context: .
           load: true
-          build-args: LUA_VERSION=${{ matrix.luaVersion }}
+          build-args: |
+            "LUA_VERSION=${{ matrix.luaVersion }}"
           tags: ${{ github.repository }}:${{ matrix.luaVersion }}
         env:
           SOURCE_DATE_EPOCH: 0

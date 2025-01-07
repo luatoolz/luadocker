@@ -36,7 +36,9 @@ RUN luarocks config --scope system lua_dir /usr
 FROM base AS libs
 ARG SOURCE_DATE_EPOCH
 ARG LUA_VERSION
-ARG USE_LUA_VERSION=${LUA_VERSION}
+ENV LUA_VERSION=${LUA_VERSION}
+ENV USE_LUA_VERSION=${LUA_VERSION}
+
 RUN luarocks install --dev compat53
 RUN luarocks install --dev say
 RUN luarocks install --dev busted
