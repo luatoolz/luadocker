@@ -37,6 +37,4 @@ jobs:
             LUA_VERSION=${{ matrix.luaVersion }}
           tags: ${{ github.repository }}:${{ matrix.luaVersion }}
         env:
-          LUA_VERSION: ${{ matrix.luaVersion }}
-          USE_LUA_VERSION: ${{ matrix.luaVersion }}
           SOURCE_DATE_EPOCH: 0

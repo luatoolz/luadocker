@@ -36,16 +36,15 @@ RUN luarocks config --scope system lua_dir /usr
 FROM base AS libs
 ARG SOURCE_DATE_EPOCH
 ARG LUA_VERSION
-ENV LUA_VERSION=${LUA_VERSION}
-ENV USE_LUA_VERSION=${LUA_VERSION}
 
+#RUN luarocks install --dev lua-mongo
+RUN luarocks install --dev https://raw.githubusercontent.com/luatoolz/lua-mongo/master/lua-mongo-scm-0.rockspec
 RUN luarocks install --dev compat53
 RUN luarocks install --dev say
 RUN luarocks install --dev busted
 RUN luarocks install --dev date
 RUN luarocks install --dev idn2
 RUN luarocks install --dev lua-maxminddb
-#RUN luarocks install --dev lua-mongo
 RUN luarocks install --dev luaresolver
 RUN luarocks install --dev luasocket
 RUN luarocks install --dev luassert
@@ -54,7 +53,6 @@ RUN luarocks install --dev net-url
 RUN luarocks install --dev paths
 RUN luarocks install --dev public_suffix_list
 RUN luarocks install --dev rapidjson
-RUN luarocks install --dev https://raw.githubusercontent.com/luatoolz/lua-mongo/master/lua-mongo-scm-0.rockspec
 
 FROM scratch
 ARG SOURCE_DATE_EPOCH
