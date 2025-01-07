@@ -38,12 +38,5 @@ jobs:
           tags: ${{ github.repository }}:${{ matrix.luaVersion }}
         env:
           LUA_VERSION: ${{ matrix.luaVersion }}
-          SOURCE_DATE_EPOCH: 0
-      - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          tags: ${{ github.repository }}:${{ matrix.luaVersion }}
-        env:
+          USE_LUA_VERSION: ${{ matrix.luaVersion }}
           SOURCE_DATE_EPOCH: 0
