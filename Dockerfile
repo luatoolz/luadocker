@@ -57,5 +57,5 @@ ARG SOURCE_DATE_EPOCH
 ARG LUA_VERSION
 ENV LUA_VERSION=$LUA_VERSION
 COPY --from=libs / /
-COPY mc.ini /root/.config/mc/mc.ini
+COPY mc.ini /root/.config/mc/ini
 CMD bash
