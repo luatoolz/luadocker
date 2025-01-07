@@ -37,8 +37,8 @@ FROM base AS libs
 ARG SOURCE_DATE_EPOCH
 ARG LUA_VERSION
 
-#RUN luarocks install --dev lua-mongo
-RUN luarocks install --dev https://raw.githubusercontent.com/luatoolz/lua-mongo/master/lua-mongo-scm-0.rockspec
+RUN luarocks install --dev lua-mongo
+#RUN luarocks install --dev https://raw.githubusercontent.com/luatoolz/lua-mongo/master/lua-mongo-scm-0.rockspec
 RUN luarocks install --dev compat53
 RUN luarocks install --dev say
 RUN luarocks install --dev busted
