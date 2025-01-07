@@ -33,6 +33,7 @@ jobs:
         with:
           context: .
           load: true
+          push: true
           build-args: |
             LUA_VERSION=${{ matrix.luaVersion }}
           tags: ${{ github.repository }}:${{ matrix.luaVersion }}
