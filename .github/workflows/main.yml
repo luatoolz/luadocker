@@ -10,6 +10,15 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        luaVersion:
+          - 5.1
+          - 5.2
+          - 5.3
+          - 5.4
+          - jit
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,8 +34,8 @@ jobs:
         with:
           context: .
           load: true
-          build-args: LUA_VERSION=5.1
-          tags: ${{ github.repository }}
+          build-args: LUA_VERSION=${{ matrix.luaVersion }}
+          tags: ${{ github.repository }}:${{ matrix.luaVersion }}
         env:
           SOURCE_DATE_EPOCH: 0
       - name: Build and push
@@ -34,6 +43,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ github.repository }}
+          tags: ${{ github.repository }}:${{ matrix.luaVersion }}
         env:
           SOURCE_DATE_EPOCH: 0
