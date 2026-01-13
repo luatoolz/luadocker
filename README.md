@@ -1,6 +1,6 @@
 # lua/alpine docker standard tester image
 ```bash
-docker pull luatoolz/luadocker
+$ docker pull luatoolz/luadocker
 
 tags: 5.1, 5.2, 5.3, jit
 ```
@@ -13,6 +13,7 @@ tags: 5.1, 5.2, 5.3, jit
 - idn2
 - resolver
 - utf8
+- SOURCE_DATE_EPOCH=0
 - other minor libs/connectors
 
 ## test tools:
@@ -20,3 +21,6 @@ tags: 5.1, 5.2, 5.3, jit
 - busted
 - bash/mc/net/cli tools
 - luarocks modules
+
+## TODO
+- 5.4

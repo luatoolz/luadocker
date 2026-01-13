@@ -15,7 +15,7 @@ RUN apk update && apk upgrade && apk add \
   libmaxminddb libmaxminddb-dev libmaxminddb-libs \
   mongo-c-driver-static libbson-static \
   libidn2-dev \
-  zlib zlib-dev \
+  zlib zlib-dev pcre2 pcre2-dev \
   perl-app-cpanminus perl-test-nginx perl-utils \
   lua${LUA_VERSION}-dev lua${LUA_VERSION}
 
@@ -58,5 +58,4 @@ ARG SOURCE_DATE_EPOCH
 ARG LUA_VERSION
 ENV LUA_VERSION=$LUA_VERSION
 COPY --from=libs / /
-COPY mc.ini /root/.config/mc/ini
-CMD bash
+CMD /bin/bash
