@@ -1,5 +1,6 @@
 # syntax=docker/dockerfile:1
 # check=skip=JSONArgsRecommended,StageNameCasing
+
 ARG SOURCE_DATE_EPOCH=0
 ARG LUA_VERSION=${LUA_VERSION:-jit}
 
