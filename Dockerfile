@@ -41,7 +41,6 @@ ARG LUA_VERSION
 RUN luarocks install --dev lua-mongo
 RUN luarocks install --dev compat53
 RUN luarocks install --dev say
-RUN luarocks install --dev busted
 RUN luarocks install --dev date
 RUN luarocks install --dev idn2
 RUN luarocks install --dev lua-maxminddb
@@ -53,6 +52,9 @@ RUN luarocks install --dev net-url
 RUN luarocks install --dev paths
 RUN luarocks install --dev public_suffix_list
 RUN luarocks install --dev rapidjson
+
+RUN luarocks test --prepare
+RUN luarocks install --dev busted
 
 FROM scratch
 ARG SOURCE_DATE_EPOCH
